@@ -5,8 +5,8 @@ module Helpers
     avg = cached_average ? cached_average.avg : 0
 
     star         = options[:star]         || 5
-    enable_half  = options[:enable_half]  || false 
-    half_show    = options[:half_show]    || false 
+    enable_half  = options[:enable_half]  || false
+    half_show    = options[:half_show]    || false
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
@@ -18,7 +18,7 @@ module Helpers
     cancel_off   = options[:cancel_off]   || "cancel-off.png"
     noRatedMsg   = options[:noRatedMsg]   || "I'am readOnly and I haven't rated yet!"
     # round        = options[:round]        || { down: .26, full: .6, up: .76 }
-    space        = options[:space]        || false 
+    space        = options[:space]        || false
     single       = options[:single]       || false
     target       = options[:target]       || ''
     targetText   = options[:targetText]   || ''
@@ -34,6 +34,7 @@ module Helpers
     else
       readonly = !current_user || false
     end
+    readonly = options[:readonly] if options[:readonly].present?
 
     if options[:imdb_avg] && readonly
       content_tag :div, '', :style => "background-image:url(/assets/mid-star.png);width:61px;height:57px;margin-top:10px;" do
@@ -46,7 +47,7 @@ module Helpers
                   "data-readonly" => readonly,
                   "data-enable-half" => enable_half,
                   "data-half-show" => half_show,
-                  "data-star-count" => star, 
+                  "data-star-count" => star,
                   "data-star-path" => star_path,
                   "data-star-on" => star_on,
                   "data-star-off" => star_off,
@@ -83,7 +84,7 @@ module Helpers
 	  stars = @rating ? @rating.stars : 0
 
     star         = options[:star]         || 5
-    enable_half  = options[:enable_half]  || false 
+    enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
@@ -96,7 +97,7 @@ module Helpers
     cancel_off   = options[:cancel_off]   || "cancel-off.png"
     noRatedMsg   = options[:noRatedMsg]   || "I'am readOnly and I haven't rated yet!"
     # round        = options[:round]        || { down: .26, full: .6, up: .76 }
-    space        = options[:space]        || false 
+    space        = options[:space]        || false
     single       = options[:single]       || false
     target       = options[:target]       || ''
     targetText   = options[:targetText]   || ''
@@ -110,6 +111,7 @@ module Helpers
     if disable_after_rate
       readonly = rating_user.present? ? !rateable_obj.can_rate?(rating_user, dimension) : true
     end
+    readonly = options[:readonly] if options[:readonly].present?
 
     content_tag :div, '', "data-dimension" => dimension, :class => "star", "data-rating" => stars,
                 "data-id" => rateable_obj.id, "data-classname" => rateable_obj.class.name,
@@ -117,7 +119,7 @@ module Helpers
                 "data-readonly" => readonly,
                 "data-enable-half" => enable_half,
                 "data-half-show" => half_show,
-                "data-star-count" => star, 
+                "data-star-count" => star,
                 "data-star-path" => star_path,
                 "data-star-on" => star_on,
                 "data-star-off" => star_off,
