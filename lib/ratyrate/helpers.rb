@@ -25,6 +25,7 @@ module Helpers
     targetType   = options[:targetType]   || 'hint'
     targetFormat = options[:targetFormat] || '{score}'
     targetScore  = options[:targetScore]  || ''
+    prefix       = options[:prefix]       || ''
 
     disable_after_rate = options[:disable_after_rate] && true
     disable_after_rate = true if disable_after_rate == nil
@@ -65,7 +66,8 @@ module Helpers
                   "data-target-text" => targetText,
                   "data-target-type" => targetType,
                   "data-target-format" => targetFormat,
-                  "data-target-score" => targetScore
+                  "data-target-score" => targetScore,
+                  "data-prefix" => prefix
     end
   end
 
