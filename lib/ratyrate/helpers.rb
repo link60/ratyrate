@@ -7,6 +7,7 @@ module Helpers
     star         = options[:star]         || 5
     enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
+    blank_stars  = options[:blank_stars].nil? ? true : (options[:blank_stars] == true)
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
@@ -47,6 +48,7 @@ module Helpers
                   "data-disable-after-rate" => disable_after_rate,
                   "data-readonly" => readonly,
                   "data-enable-half" => enable_half,
+                  "data-blank-stars" => blank_stars,
                   "data-half-show" => half_show,
                   "data-star-count" => star,
                   "data-star-path" => star_path,
@@ -89,7 +91,7 @@ module Helpers
     star         = options[:star]         || 5
     enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
-    blank_stars  = options[:blank_stars]  || true
+    blank_stars  = options[:blank_stars].nil? ? true : (options[:blank_stars] == true)
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
