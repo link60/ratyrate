@@ -67,7 +67,8 @@ module Helpers
                   "data-target-type" => targetType,
                   "data-target-format" => targetFormat,
                   "data-target-score" => targetScore,
-                  "data-prefix" => prefix
+                  "data-prefix" => prefix,
+                  "style" => options[:style]
     end
   end
 
@@ -140,7 +141,8 @@ module Helpers
                 "data-target" => target,
                 "data-target-text" => targetText,
                 "data-target-format" => targetFormat,
-                "data-target-score" => targetScore
+                "data-target-score" => targetScore,
+                "style" => options[:style]
   end
 
 end
