@@ -82,12 +82,13 @@ module Helpers
   def rating_for_user(rateable_obj, rating_user, dimension = nil, options = {})
     @object = rateable_obj
     @user = rating_user
-	  @rating = Rate.find_by_rater_id_and_rateable_id_and_dimension(@user.id, @object.id, dimension)
-	  stars = @rating ? @rating.stars : 0
+    @rating = Rate.find_by_rater_id_and_rateable_id_and_dimension(@user.id, @object.id, dimension)
+    stars = @rating ? @rating.stars : 0
 
     star         = options[:star]         || 5
     enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
+    blank_stars  = options[:blank_stars]  || true
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
@@ -120,6 +121,7 @@ module Helpers
                 "data-disable-after-rate" => disable_after_rate,
                 "data-readonly" => readonly,
                 "data-enable-half" => enable_half,
+                "data-blank-stars" => blank_stars,
                 "data-half-show" => half_show,
                 "data-star-count" => star,
                 "data-star-path" => star_path,
