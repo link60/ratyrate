@@ -8,6 +8,7 @@ module Helpers
     enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
     blank_stars  = options[:blank_stars].nil? ? true : (options[:blank_stars] == true)
+    star_width   = options[:star_width]
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
@@ -70,6 +71,7 @@ module Helpers
                   "data-target-format" => targetFormat,
                   "data-target-score" => targetScore,
                   "data-prefix" => prefix,
+                  "data-star-width" => star_width,
                   "style" => options[:style]
     end
   end
@@ -92,6 +94,7 @@ module Helpers
     enable_half  = options[:enable_half]  || false
     half_show    = options[:half_show]    || false
     blank_stars  = options[:blank_stars].nil? ? true : (options[:blank_stars] == true)
+    star_width   = options[:star_width]
     star_path    = options[:star_path]    || "/assets"
     star_on      = options[:star_on]      || "star-on.png"
     star_off     = options[:star_off]     || "star-off.png"
@@ -110,6 +113,7 @@ module Helpers
     targetType   = options[:targetType]   || 'hint'
     targetFormat = options[:targetFormat] || '{score}'
     targetScore  = options[:targetScore]  || ''
+    prefix       = options[:prefix]       || ''
 
     disable_after_rate = options[:disable_after_rate] || false
 
@@ -144,6 +148,8 @@ module Helpers
                 "data-target-text" => targetText,
                 "data-target-format" => targetFormat,
                 "data-target-score" => targetScore,
+                "data-prefix" => prefix,
+                "data-star-width" => star_width,
                 "style" => options[:style]
   end
 
