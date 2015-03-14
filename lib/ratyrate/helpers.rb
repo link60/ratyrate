@@ -20,7 +20,7 @@ module Helpers
     cancel_off   = options[:cancel_off]   || "cancel-off.png"
     noRatedMsg   = options[:noRatedMsg]   || "I'am readOnly and I haven't rated yet!"
     # round        = options[:round]        || { down: .26, full: .6, up: .76 }
-    space        = options[:space]        || false
+    space        = options[:space].nil? ? true : (options[:space] == true)
     single       = options[:single]       || false
     target       = options[:target]       || ''
     targetText   = options[:targetText]   || ''
@@ -106,7 +106,7 @@ module Helpers
     cancel_off   = options[:cancel_off]   || "cancel-off.png"
     noRatedMsg   = options[:noRatedMsg]   || "I'am readOnly and I haven't rated yet!"
     # round        = options[:round]        || { down: .26, full: .6, up: .76 }
-    space        = options[:space]        || false
+    space        = options[:space].nil? ? true : (options[:space] == true)
     single       = options[:single]       || false
     target       = options[:target]       || ''
     targetText   = options[:targetText]   || ''
