@@ -28,6 +28,7 @@ module Helpers
     targetFormat = options[:targetFormat] || '{score}'
     targetScore  = options[:targetScore]  || ''
     prefix       = options[:prefix]       || ''
+    suffix       = options[:suffix]       || ''
 
     disable_after_rate = options[:disable_after_rate] && true
     disable_after_rate = true if disable_after_rate == nil
@@ -71,6 +72,7 @@ module Helpers
                   "data-target-format" => targetFormat,
                   "data-target-score" => targetScore,
                   "data-prefix" => prefix,
+                  "data-suffix" => suffix,
                   "data-star-width" => star_width,
                   "style" => options[:style]
     end
@@ -114,6 +116,7 @@ module Helpers
     targetFormat = options[:targetFormat] || '{score}'
     targetScore  = options[:targetScore]  || ''
     prefix       = options[:prefix]       || ''
+    suffix       = options[:suffix]       || ''
 
     disable_after_rate = options[:disable_after_rate] || false
 
@@ -149,6 +152,7 @@ module Helpers
                 "data-target-format" => targetFormat,
                 "data-target-score" => targetScore,
                 "data-prefix" => prefix,
+                "data-suffix" => suffix,
                 "data-star-width" => star_width,
                 "style" => options[:style]
   end
